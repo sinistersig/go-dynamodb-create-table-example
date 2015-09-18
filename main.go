@@ -15,25 +15,25 @@ func main(){
 	svc := dynamodb.New(config)
 
 	//create product table
-//	resp, err := tables.CreateProductTable(svc)
-//
-//	if err != nil {
-//		log.Println(err.Error())
-//	}
-//
-//	log.Println(resp)
-//
-//	//Create forum table
-//	resp, err = tables.CreateForumTable(svc)
-//
-//	if err != nil {
-//		log.Println(err.Error())
-//	}
-//
-//	log.Println(resp)
+	resp, err := tables.CreateProductTable(svc)
+
+	if err != nil {
+		log.Println(err.Error())
+	}
+
+	log.Println(resp)
+
+	//Create forum table
+	resp, err = tables.CreateForumTable(svc)
+
+	if err != nil {
+		log.Println(err.Error())
+	}
+
+	log.Println(resp)
 
 	//Reply
-	resp, err := tables.CreateReplyTable(svc)
+	resp, err = tables.CreateReplyTable(svc)
 
 	if err != nil {
 		log.Println(err.Error())
