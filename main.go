@@ -3,8 +3,10 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"log"
-	"github.com/sinistersig/aws-practice-dynamodb/tables"
+	"github.com/sinistersig/aws-practice-dynamodb-create-table/tables"
 )
+
+const CREATING = "CREATING..."
 
 func main(){
 
@@ -14,30 +16,39 @@ func main(){
 
 	svc := dynamodb.New(config)
 
-	//create product table
-	resp, err := tables.CreateProductTable(svc)
+	//Product
+	_, err := tables.CreateProductTable(svc)
 
 	if err != nil {
 		log.Println(err.Error())
 	}
 
-	log.Println(resp)
+	log.Println(CREATING)
 
-	//Create forum table
-	resp, err = tables.CreateForumTable(svc)
+	//Forum
+	_, err = tables.CreateForumTable(svc)
 
 	if err != nil {
 		log.Println(err.Error())
 	}
 
-	log.Println(resp)
+	log.Println(CREATING)
 
 	//Reply
-	resp, err = tables.CreateReplyTable(svc)
+	_, err = tables.CreateReplyTable(svc)
 
 	if err != nil {
 		log.Println(err.Error())
 	}
 
-	log.Println(resp)
+	log.Println(CREATING)
+
+	//Thread
+	_, err = tables.CreateThreadTable(svc)
+
+	if err != nil {
+		log.Println(err.Error())
+	}
+
+	log.Println(CREATING)
 }

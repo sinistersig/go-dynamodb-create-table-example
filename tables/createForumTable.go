@@ -10,22 +10,14 @@ func CreateForumTable(svc *dynamodb.DynamoDB) (*dynamodb.CreateTableOutput, erro
 		TableName: aws.String("Forum"),
 		AttributeDefinitions: []*dynamodb.AttributeDefinition{
 			{
-				AttributeName: aws.String("ForumName"),
-				AttributeType: aws.String("S"),
-			},
-			{
-				AttributeName: aws.String("Subject"),
+				AttributeName: aws.String("Name"),
 				AttributeType: aws.String("S"),
 			},
 		},
 		KeySchema: []*dynamodb.KeySchemaElement{
 			{
-				AttributeName: aws.String("ForumName"),
+				AttributeName: aws.String("Name"),
 				KeyType: aws.String("HASH"),
-			},
-			{
-				AttributeName: aws.String("Subject"),
-				KeyType: aws.String("RANGE"),
 			},
 		},
 		ProvisionedThroughput: &dynamodb.ProvisionedThroughput{
